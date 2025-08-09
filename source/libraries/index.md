@@ -26,7 +26,7 @@ There's no special/quick process to generate these Subcircuits for use in a Libr
 You can follow [this section of the Subcircuit documentation](/subckts-and-ext-models/spice-models/using-spice-subckt-models.md#importing-subckt-models-with-spice-file-component) to learn how to create a subcircuit with a customized symbol based on an external SPICE model.
 ```
 
-The output of this "compilation" process is the Library file, which contains all the Subcircuits of the source Project.
+The output of this "compilation" process is the Library file (``.lib`` file), which contains all the Subcircuits of the source Project.
 
 ```{warning}
 While the Library syntax is XML-like, the exact syntax is not documented at this time, and the files are not intended to be human-editable. Attempting to manually edit a "compiled" Library file may result in unexpected behavior.
