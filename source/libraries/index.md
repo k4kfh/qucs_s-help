@@ -104,7 +104,7 @@ class: with-border
 Example of what a successfully-created Library would look like. This example shows a library ``ExampleLibrary`` containing a single part, ``voltage-divider``. The Library has been set up as a _User Library_, which means it's available in all QUCS-S projects opened on this PC. See the next section for more information on this.
 ```
 
-### Example: Creating a New Library from SPICE .MODEL Data with QucsConv
+### Example: Creating a New Library from SPICE Data with the "Convert Data File" utility (QucsConv)
 
 TODO: Write about using QucsConv
 
