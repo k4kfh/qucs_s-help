@@ -21,7 +21,9 @@ Process diagram, showing the one-way process of creating _Libraries_ from _Proje
 The input to the "compilation" (i.e. the "source code") is [a standard QUCS-S "Project"](/overview/understanding-file-structure.md#projects), containing multiple ``.sch`` files which are [set up as Subcircuits](/subckts-and-ext-models/working-with-subcircuits). There should be one of these ``.sch`` files for each Device you want in your Library. The Subcircuits should have all the necessary symbols and ports configured - all the Library will do is make it easier to drop these Subcircuits into your projects.
 
 ```{tip}
-There's no special/quick process to generate these Subcircuits for use in a Library. It's manual, and you cannot use [the new "SPICE Library Device" component to accelerate the process.](/subckts-and-ext-models/spice-models/using-spice-subckt-models.md#importing-subckt-models-with-spice-library-device-recommended)
+Generally speaking, there's no special/quick process to generate these Subcircuits for use in a Library, especially if you are importing models that utilize a SPICE ``.SUBCKT`` directive. It's a manual process, and you cannot use [the new "SPICE Library Device" component to accelerate the process.](/subckts-and-ext-models/spice-models/using-spice-subckt-models.md#importing-subckt-models-with-spice-library-device-recommended)
+
+The only time where there _is_ a valid "shortcut" to create a Library is if you have SPICE Discrete Device models (i.e. the ``.MODEL`` data) for your devices. In that case, you can [use the "Convert Data Files" utility.](#example-creating-a-new-library-from-spice-data-with-the-convert-data-file-utility-qucsconv)
 
 You can follow [this section of the Subcircuit documentation](/subckts-and-ext-models/spice-models/using-spice-subckt-models.md#importing-subckt-models-with-spice-file-component) to learn how to create a subcircuit with a customized symbol based on an external SPICE model.
 ```
@@ -31,6 +33,13 @@ The output of this "compilation" process is the Library file (``.lib`` file), wh
 ```{warning}
 While the Library syntax is XML-like, the exact syntax is not documented at this time, and the files are not intended to be human-editable. Attempting to manually edit a "compiled" Library file may result in unexpected behavior.
 ```
+
+### Methods to Create Libraries
+
+There are two methods to create Libraries in QUCS-S:
+
+1. [Create a Library Manually, with fully customizable circuitry and symbology.](#example-creating-a-new-library-manually) This is the most common method, since it gives you the most power to customize the Library components.
+2. [Create a Library by Importing SPICE Discrete Component Models (``.MODEL`` data), using the "Convert Data Files" tool (QucsConv).](#example-creating-a-new-library-from-spice-data-with-the-convert-data-file-utility-qucsconv) This is most commonly used to import model libraries from other tools, such as LTSpice.
 
 ### Example: Creating a New Library Manually
 
